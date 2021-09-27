@@ -1,0 +1,67 @@
+<style>
+a{
+    color: white;
+    text-decoration: none;
+}
+
+li{
+    padding: 5%;
+    size: 30px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+</style>
+<div class="text-center">
+
+    <nav *ngIf="notsignin">
+        <ul>
+        <li><a routerLink="/" routerActiveLink="true"><h4>Home page</h4></a></li>
+        <li><a routerLink="/register" routerLinkActive="true"><h4>Register page</h4></a></li>  
+        <li><a routerLink="/signin" routerLinkActive="true"><h4>Signin</h4></a></li>
+        <li><a routerLink="/adminsignin" routerLinkActive="true"><h4>Admin Signin</h4></a></li>
+    </ul>
+    </nav>
+    
+    <nav *ngIf="user">
+        <ul>
+        <li><a routerLink="/" routerActiveLink="true"><h4>Home page</h4></a></li>
+        <li><a routerLink="/profile" routerActiveLink="true"><h4>Profile Page</h4></a></li>
+        <li><button class="btn btn-lg btn-danger" id="remove" name="delete" (click)="open(mymodal)">
+            <ng-template #mymodal let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">delete User</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                are you sure you want to Logout
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  Cancel</button>
+                  <button type="button" class="btn btn-danger" (click)="modal.close('Save click')" (click)="func()">Yes
+                </button>
+              </div>
+            </ng-template>
+            <strong>logout</strong>      
+          </button></li>
+
+    </ul>
+    </nav>
+
+    <nav *ngIf="admin">
+        <ul>
+        <li><a routerLink="/" routerActiveLink="true"><h4>Home page</h4></a></li>
+        <li><a routerLink="/alldetails" routerLinkActive="true"><h4>All User details</h4></a></li>
+        <li><a routerLink="/delete" routerLinkActive="true"><h4>delete records</h4></a></li>
+        <li><a routerLink="/update" routerLinkActive="true"><h4>update records</h4></a></li>
+        <li><button type="button" class="btn btn-danger" (click)="func()">Logout</button></li>  
+
+    </ul>
+    </nav>
+    
+</div>

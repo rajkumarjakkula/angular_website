@@ -1,0 +1,21 @@
+
+
+
+<div class="table-responsive" style="width: 18rem;margin:auto; width: 60%;">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">Name</th>
+            <th scope="col" class="text-center" >Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor="let user of users">
+          <td class="text-center">{{user.name}}</td>
+          <td class="text-center">{{user.email}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+  </div>

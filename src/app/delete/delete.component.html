@@ -1,0 +1,41 @@
+
+<div class="table-responsive" style="width: 18rem;margin:auto; width: 80%;">
+  <table class="table table-hover table-bordered ">
+        <thead>
+          <tr class="table-primary">
+            <th  scope="col" class="text-center">email</th>
+            <th scope="col" class="text-center">Password</th>
+            <th scope="col" colspan="2" class="text-center">Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of list1">
+          <td class="text-center">{{user.name}}</td>
+          <td class="text-center">{{user.email}}</td>
+          
+          <td>
+          <button class="btn btn-lg btn-outline-primary" id="remove" name="delete" (click)="open(mymodal)">
+            <ng-template #mymodal let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">delete User</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                are you sure you want to delete <p class="text-danger">{{user.email}}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  Cancel</button>
+                  <a routerLink="/alldetails" routerLinkActive="true"><button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" (click)="deleteTask(user)">Yes
+                </button></a>
+              </div>
+            </ng-template>
+            <strong>Delete</strong>      
+          </button>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
